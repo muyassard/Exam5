@@ -11,14 +11,12 @@ body {
 .container {
   display: flex;
   gap: 30px;
-  align-items: center;
   justify-content: center;
 }
 .done,
 .inProgress,
 .todo {
-  height: 540px;
-  min-width: 100px;
+  min-height: 430px;
   background: #565656;
   padding: 8px;
   border-radius: 15px;
@@ -50,7 +48,7 @@ body {
   color: #fff;
   font-size: 25px;
   width: 250px;
-  height: 150px;
+  height: 100px;
   background: #7c7c7c;
   border-radius: 10px;
 }
