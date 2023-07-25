@@ -1,9 +1,9 @@
 //DOM VARIABLES
 
 const boxes = document.querySelectorAll(".box");
-const todoElm = document.querySelector(".todo");
-const inProgressElm = document.querySelector(".inProgress");
-const doneElm = document.querySelector(".done");
+const todoElm = document.querySelector(".addBoxTodo");
+const inProgressElm = document.querySelector(".addBoxIP");
+const doneElm = document.querySelector(".addBoxDone");
 
 //BUTTONS
 const addTodoElm = document.querySelector(".addTodo");
@@ -19,10 +19,35 @@ let textDone = "added done";
 //FUNCITON
 
 boxes.forEach((box1) => {
-  box1.addEventListener("drop", () => {
-    console.log("yes");
+  box1.addEventListener("dragstart", function (e) {
+    let selected = e.target;
+
+    inProgressElm.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+    inProgressElm.addEventListener("drop", function (e) {
+      inProgressElm.appendChild(selected);
+      selected = null;
+    });
+
+    todoElm.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+    todoElm.addEventListener("drop", function (e) {
+      todoElm.appendChild(selected);
+      selected = null;
+    });
+
+    doneElm.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+    doneElm.addEventListener("drop", function (e) {
+      doneElm.appendChild(selected);
+      selected = null;
+    });
   });
 });
+//
 addTodoElm.addEventListener("click", addedtodo);
 addIPElm.addEventListener("click", addedIP);
 addDoneElm.addEventListener("click", addedDone);
@@ -39,6 +64,8 @@ function addedIP() {
   box.className = "box";
   box.textContent = textIp;
   inProgressElm.append(box);
+  
+
 }
 
 function addedDone() {

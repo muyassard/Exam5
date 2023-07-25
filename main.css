@@ -1,12 +1,23 @@
+
+:root{
+    --white:#fff;
+    --bodyBg:#373636;
+    --listBg:#565656;
+    --blue:#00a2ff;
+    --yellow:#fce302;
+    --green:#44ff00;
+}
 body {
   margin: 0;
   height: 100vh;
-  background: #373636;
+  background: var(--bodyBg);
   width: 100vw;
+
 }
 * {
   box-sizing: border-box;
   font-family: sans-serif;
+  color: var(--white);
 }
 .container {
   display: flex;
@@ -16,8 +27,9 @@ body {
 .done,
 .inProgress,
 .todo {
+    width: 265px;
   min-height: 430px;
-  background: #565656;
+  background: var(--listBg);
   padding: 8px;
   border-radius: 15px;
   display: flex;
@@ -29,28 +41,33 @@ body {
 .todoMenu {
     font-weight: bold;
   padding: 5px;
-  color: #fff;
+  color: var(--white);
   font-size: 25px;
   border-radius: 10px;
   text-align: center;
 }
 .todoMenu {
-  background: #00a2ff;
+  background:var(--blue) ;
 }
 .inPrograssMenu {
-  background: #fce302;
+  background: var(--yellow);
 }
 .doneMenu {
-  background: #44ff00;
+  background: var(--green);
 }
 .box {
   padding: 10px;
-  color: #fff;
+  color: var(--white);
   font-size: 25px;
   width: 250px;
   height: 100px;
   background: #7c7c7c;
   border-radius: 10px;
+  margin: 10px 0px;
+  cursor: grab;
+}
+.box:active{
+    background: #373636;
 }
 .btn {
   border: none;
@@ -58,16 +75,17 @@ body {
   border-radius: 10px;
   height: 30px;
   font-size: 18px;
+  cursor: pointer;
 }
 .btn:active{
     transform: scale(.97);
 }
 .addTodo {
-  background: #00a2ff;
+  background: var(--blue);
 }
 .addIP {
-  background: #fce302;
+  background:var(--yellow) ;
 }
 .addDone {
-  background: #44ff00;
+  background: var(--green);
 }
